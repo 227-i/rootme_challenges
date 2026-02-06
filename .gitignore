@@ -1,0 +1,8 @@
+# objets
+*.o
+
+# dépendances
+*.d
+
+# dossiers de build
+build/
