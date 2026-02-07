@@ -12,6 +12,7 @@
 void erreur(const char* msg)
 {
     printf("Erreur: %s\n",msg);
+    close(socketC);
     exit(1);
 }
 
@@ -53,6 +54,7 @@ void traitement_nombres(char* buffer, int* nb1, int* nb2)
         *nb2 += (nombre2[i]-'0')*pow(10,k-i-1);
 }
 
+int socketC;
 
 int main()
 {
@@ -62,7 +64,6 @@ int main()
     
 
     // création du socket
-    int socketC;
     socketC = socket(AF_INET,SOCK_STREAM,0); // IPv4, paquets ordonnés
     if(socketC == -1) erreur("socket");
 
